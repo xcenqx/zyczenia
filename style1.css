@@ -38,3 +38,17 @@
             font-size: 15px;
             margin-top: 10px;
         }
+        footer{
+           
+            clear: both;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer h5{
+            margin-bottom: 5px;
+            text-align: center;
+            display: block;
+            color: white;
+            font-weight: 200;
+        }

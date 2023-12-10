@@ -238,6 +238,7 @@
       if (wish) {
         document.getElementById('zyczenia').textContent = `${wish.zyczenia}`;
         document.getElementById('autor').textContent = `Życzy ${wish.autor}`;
+        document.getElementById('num-wish').textContent = `(ID: ${wish.id})`;
       } else {
         console.error(`Brak życzenia o id ${id}`);
         window.location.href = '/zyczenia';
@@ -267,6 +268,7 @@
   </script>
 </body>
 <footer>
-  <h5> &copy 2023 - Design by Szymon Staniec</h5>
+  <h5> &copy 2023 - Design by Szymon Staniec <span id="num-wish"></span></h5>
+
 </footer>
 </html>

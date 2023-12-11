@@ -23,7 +23,11 @@
     { "id": 5,
       "zyczenia": "Hej Sorze! Przesyłamy Ci najserdeczniejsze życzenia świąteczne, świąt pełnych śmiechu, radości i pysznych przysmaków! Niech Twój brzuszek będzie pełny, a Twój śmiech głośny jak dzwoneczki na choince! Wesołych Świąt!",
       "autor": "5Ip"
-    }  
+    },
+    { "id": 6,
+      "zyczenia": "Hej Gruby! Wesołych Świąt! Życzę Ci, żebyś mógł cieszyć się pysznymi potrawami, które sprawią, że Twoje brzuszysko będzie jeszcze bardziej zadowolone! Smacznego i dużo radości przy jedzeniu w te Święta!",
+      "autor": "Szymon"
+    }    
 
 ]
   

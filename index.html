@@ -246,7 +246,7 @@
         document.getElementById('num-wish').textContent = `(ID: ${wish.id})`;
       } else {
         console.error(`Brak życzenia o id ${id}`);
-        window.location.href = '/zyczenia';
+        window.location.href = '/';
       }
     }
 
@@ -262,7 +262,7 @@
           const wishExists = data.some(item => item.id == newWishId);
           if (wishExists) {
             // W przypadku, gdy id istnieje, przekieruj na stronę z nowym id
-            window.location.href = `/zyczenia?id=${newWishId}`;
+            window.location.href = `/?id=${newWishId}`;
           } else {
             // W przypadku braku id, wyświetl komunikat
             document.getElementById('error-wish').textContent = `Brak życzenia o podanym ID`;

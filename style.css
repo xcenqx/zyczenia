@@ -283,11 +283,11 @@ p {
 }
 @media (max-width: 767px) {
   p {
-    font-size: 24px;
+    font-size: 23px;
   }
 }
 @media (max-width: 479px) {
   p {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

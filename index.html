@@ -221,7 +221,7 @@
     // Sprawdź, czy istnieje id w parametrach URL
     if (wishId) {
       // Pobierz i wyświetl życzenie o danym id
-      fetch('main.json')
+      fetch('https://xzyczenia.000webhostapp.com/json.php')
         .then(response => response.json())
         .then(data => displayWishById(data, wishId))
         .catch(error => console.error('Błąd pobierania danych:', error));
@@ -251,7 +251,7 @@
       const newWishId = document.getElementById('id_wish').value;
 
       // Sprawdź, czy nowe id występuje w pliku JSON
-      fetch('main.json')
+      fetch('https://xzyczenia.000webhostapp.com/json.php')
         .then(response => response.json())
         .then(data => {
           const wishExists = data.some(item => item.id == newWishId);

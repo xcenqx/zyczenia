@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamów Życzenia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <style>
+       body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            backdrop-filter: blur(5px);
+        }
+        form {
+            width: 400px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        select {
+          margin: 0 auto;
+          display: block;
+          width: 200px;
+          padding: 8px;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        input:invalid{
+          border: 3px solid  red;
+        }
+        #view_wish{
+          display: none;
+          background-color: rgba(0,0,0,0.2);
+          padding : 20px;
+          border-radius: 10px;
+          text-align: center;
+      }
+        
+    </style>
+</head>
+<body>
+  <content class="order_wish">
+    <div id="orders_wish">
+      <center><h1>Zamów Życzenia</h1></center>
+      <form id="emailForm">
+          <label for="recipient">*Email:</label>
+          <input type="email" id="recipient" name="recipient" placeholder="Podaj swój email" required>
+  
+          <label for="message">*Treść:</label>
+          <textarea id="message" name="message" placeholder="Tutaj wpisz swoje życzenia max: 270 znaków" rows="15" cols="20" maxlength="170" required></textarea>
+          <select id="przedautor">
+            <option value="Życzy">Życzy</option>
+            <option value="Życzą">Życzą</option>
+            <option value="Wesołych Świąt, życzy">Wesołych Świąt, życzy</option>
+            <option value="Wesołych Świąt, życzą">Wesołych Świąt, życzą</option>
+          </select>
+          <label for="subject">*Autor:</label>
+          <input type="text" id="subject" name="subject" placeholder="Od kogo Życzenia" required>
+        
+        
+         <center><button type="button" onclick="sendEmail()" class="button">Zamów Życzenia</button><button class="button" onclick="window.location.href='/zyczenia';">Wróć</button></center>
+         <h6>**Czas realizacji zamówienia do 24 godz</h6>
+        </form>
+    </div>
+    
+      <div id="view_wish">
+        <h1 id="title_vw"></h1>
+        <p id="email_vw"></p>
+        <p id="link_vw"></p>
+        <h4 id="error_vw" style="text-align: center;color:red"></h4>
+        <h5 id="content_vw"></h5>
+      </div>
+      </content>
+      <footer>
+        <h5> &copy 2023 - Design by Szymon Staniec <span id="num-wish"></span></h5>
+      </footer>
+</body>
+<script>
+function sendEmail() {
+  const formData = {
+  email:  document.getElementById('recipient').value,
+  przedautor:  document.getElementById('przedautor').value,
+  autor: document.getElementById('subject').value,
+  zyczenia: document.getElementById('message').value,
+  }
+  // Utwórz obiekt z danymi do wysłania
+
+  fetch('../zyczenia-admin/send_wish.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        console.log(data['status']);
+        console.log("Dane zostały przesłane.");
+        view_wish(data);
+    })
+    .catch((error) => {
+        console.error('Błąd:', error);
+        console.log("Wystąpił błąd podczas przesyłania danych.");
+    });
+}
+function view_wish(data){
+document.getElementById('orders_wish').style.display = 'none';
+document.getElementById('view_wish').style.display = 'block';
+document.getElementById('title_vw').textContent = `Życzenie ID: ` + data['id'];
+document.getElementById('email_vw').textContent = `Zamówienie zostało wysłane na podany email:  ` + data['email']+`.`;
+document.getElementById('link_vw').innerHTML = `link do życzenia: <a href="../zyczenia?id=` + data['id']+ `">Twoje życzenia</a>`;
+document.getElementById('error_vw').textContent = `BŁĄD SERWERA POCZTY, Przepraszamy za utrudnienia`;
+document.getElementById('content_vw').innerHTML = `*Administrator nie odpowiada za treści umieszczone w zamówieniu, KONTAKT: xcenqx.gmail.com<br>**Podane ID w tytule po wpisaniu na stronie głównej wyświetli dodane życzenia.`;
+document.title = `Animowana Kartka Świąteczna nr: ` +  data['id'];
+}
+
+</script>
+</html>

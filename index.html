@@ -256,7 +256,7 @@
       const newWishId = document.getElementById('id_wish').value;
 
       // Sprawdź, czy nowe id występuje w pliku JSON
-      fetch('https://xzyczenia.000webhostapp.com/json.php')
+      fetch('https://xzyczenia.ct8.pl/json.phpp')
         .then(response => response.json())
         .then(data => {
           const wishExists = data.some(item => item.id == newWishId);

@@ -130,7 +130,7 @@ document.getElementById('orders_wish').style.display = 'none';
 document.getElementById('view_wish').style.display = 'block';
 document.getElementById('title_vw').textContent = `Życzenie ID: ` + data['id'];
 document.getElementById('email_vw').textContent = `Zamówienie zostało wysłane na podany email:  ` + data['email']+`.`;
-document.getElementById('link_vw').innerHTML = `link do życzenia: <a href="../zyczenia?id=` + data['id']+ `">Twoje życzenia</a>`;
+document.getElementById('link_vw').innerHTML = `link do życzenia: <a href="../?id=` + data['id']+ `">Twoje życzenia</a>`;
 document.getElementById('error_vw').textContent = `BŁĄD SERWERA POCZTY, Przepraszamy za utrudnienia`;
 document.getElementById('content_vw').innerHTML = `*Administrator nie odpowiada za treści umieszczone w zamówieniu, KONTAKT: xcenqx.gmail.com<br>**Podane ID w tytule po wpisaniu na stronie głównej wyświetli dodane życzenia.`;
 document.title = `Animowana Kartka Świąteczna nr: ` +  data['id'];

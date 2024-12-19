@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamów Życzenia</title>
+    <link rel="stylesheet" href="includes/css/main_style.css">
+    <link rel="stylesheet" href="includes/css/style.css">
+    <link rel="stylesheet" href="includes/css/wish_style.css">
+    </style>
+</head>
+<body>
+  <content class="order_wish">
+    <div id="orders_wish">
+      <center><h1>Zamów Życzenie</h1></center>
+      <form id="emailForm">
+          <p style="text-align: center;color:red;font-size: 20px;" id="error_form"></p>
+          <label for="recipient">Email:*</label>
+          <input type="email" id="recipient" name="recipient" placeholder="Podaj swój email" required>
+  
+          <label for="message">Treść:*</label>
+          <textarea id="message" name="message" placeholder="Tutaj wpisz swoje życzenia max: 270 znaków" rows="15" cols="20" maxlength="170" required></textarea>
+          <select id="przedautor">
+            <option value="Życzy">Życzy</option>
+            <option value="Życzą">Życzą</option>
+            <option value="Wesołych Świąt, życzy">Wesołych Świąt, życzy</option>
+            <option value="Wesołych Świąt, życzą">Wesołych Świąt, życzą</option>
+            <option value="">(PUSTE)</option>
+          </select>
+          <label for="subject">Autor:*</label>
+          <input type="text" id="subject" name="subject" placeholder="np. Rodzina Mazurów, Kacper" required>
+        
+        
+         <center><button type="button" onclick="sendEmail()" class="button">Dodaj Życzenie</button><button class="button" onclick="window.location.href='/';">Wróć</button></center>
+         <h6>**Czas realizacji zamówienia do 30 min</h6>
+        </form>
+    </div>
+    
+      <div id="view_wish">
+        <h1 id="title_vw"></h1>
+        <p id="email_vw"></p>
+        <p id="link_vw"></p>
+        <h4 id="error_vw" style="text-align: center;color:red"></h4>
+        <h5 id="content_vw"></h5>
+      </div>
+      </content>
+      <footer>
+        <h5> &copy 2024 - Design by Animowana Kartka Świąteczna <span id="num-wish"></span></h5>
+      </footer>
+</body>
+<script src="includes/js/add_wish.js"></script>
+</html>
